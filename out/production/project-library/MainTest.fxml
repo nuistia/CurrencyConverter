@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane id="root" fx:id="root" focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
+    <top>
+        <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <Label fx:id="USDInfo" prefWidth="120.0">
+                <FlowPane.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                </FlowPane.margin>
+            </Label>
+            <Label fx:id="EURInfo" prefWidth="120.0">
+                <FlowPane.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                </FlowPane.margin>
+            </Label>
+        </FlowPane>
+    </top>
+    <left>
+        <VBox alignment="CENTER_LEFT" prefHeight="315.0" prefWidth="115.0" BorderPane.alignment="CENTER">
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" orientation="VERTICAL" prefHeight="315.0"
+                      prefWidth="105.0">
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                </padding>
+                <VBox.margin>
+                    <Insets/>
+                </VBox.margin>
+                <RadioButton id="purchaseCurrency" fx:id="purchaseCurrency" contentDisplay="CENTER" disable="true"
+                             mnemonicParsing="false" prefWidth="80.0" text="Купівля">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                    <toggleGroup>
+                        <ToggleGroup fx:id="myToggleGroup"/>
+                    </toggleGroup>
+                    <FlowPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </FlowPane.margin>
+                </RadioButton>
+                <RadioButton id="saleCurrency" fx:id="saleCurrency" contentDisplay="CENTER" disable="true"
+                             mnemonicParsing="false" prefWidth="80.0" text="Продаж" toggleGroup="$myToggleGroup">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                    <FlowPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </FlowPane.margin>
+                </RadioButton>
+            </FlowPane>
+        </VBox>
+    </left>
+    <center>
+        <Pane prefHeight="290.0" prefWidth="340.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets right="10.0"/>
+            </BorderPane.margin>
+            <Group layoutX="19.0" layoutY="72.0">
+                <Label layoutY="4.0" text="Введіть націнку на ціну валюти :"/>
+                <TextField fx:id="markup" disable="true" layoutX="198.0" prefHeight="25.0" prefWidth="100.0"
+                           promptText="\%"/>
+            </Group>
+            <Label fx:id="defineCurrencyPrice" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="30.0"
+                   prefWidth="307.0" text="Оберіть валюту для початку роботи" textAlignment="CENTER">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Label>
+            <Label fx:id="priceWithMarkup" layoutX="19.0" layoutY="116.0">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Label>
+            <Group layoutX="19.0" layoutY="158.0">
+                <Label layoutY="4.0" text="Введіть кількість у. о. :"/>
+            </Group>
+            <Label layoutX="19.0" layoutY="223.0" text="До сплати:">
+                <font>
+                    <Font name="System Bold" size="16.0"/>
+                </font>
+            </Label>
+            <TextField fx:id="inputSumField" disable="true" layoutX="217.0" layoutY="158.0"
+                       onAction="#onEnterPressedInputSumField" prefHeight="25.0" prefWidth="100.0" promptText="0"/>
+            <Label fx:id="totalSum" alignment="CENTER_RIGHT" layoutX="167.0" layoutY="223.0" prefWidth="100.0"
+                   text="0.00" textAlignment="RIGHT">
+                <font>
+                    <Font name="System Bold" size="16.0"/>
+                </font>
+            </Label>
+            <Label layoutX="276.0" layoutY="223.0" text="UAH">
+                <font>
+                    <Font name="System Bold" size="16.0"/>
+                </font>
+            </Label>
+            <Button fx:id="resetButton" contentDisplay="CENTER" disable="true" layoutX="143.0" layoutY="276.0"
+                    mnemonicParsing="false" onAction="#onResetButtonAction" prefWidth="50.0" text="⟳"
+                    textAlignment="CENTER"/>
+            <Button fx:id="confirmButton" disable="true" layoutX="178.0" layoutY="158.0" mnemonicParsing="false"
+                    onAction="#onEnterPressedInputSumField" prefWidth="30.0" text="✓"/>
+        </Pane>
+    </center>
+    <bottom>
+        <Pane prefHeight="35.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="200.0" layoutY="9.0"
+                   prefWidth="200.0"/>
+        </Pane>
+    </bottom>
+    <right>
+        <Pane prefHeight="315.0" prefWidth="135.0" BorderPane.alignment="CENTER">
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="127.0" text="Оберіть валюту:"
+                   textAlignment="CENTER">
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                </padding>
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Label>
+            <ScrollPane hbarPolicy="NEVER" layoutY="37.0" style="-fx-border-color: white;">
+                <opaqueInsets>
+                    <Insets/>
+                </opaqueInsets>
+                <AnchorPane>
+                    <ListView id="listOfCurrencies" fx:id="listOfCurrencies" prefHeight="276.0"
+                              prefWidth="125.0"
+                              style="-fx-border-style: none;                                           -fx-border-color: white;"
+                              AnchorPane.topAnchor="0.0"/>
+                </AnchorPane>
+            </ScrollPane>
+        </Pane>
+    </right>
+</BorderPane>
