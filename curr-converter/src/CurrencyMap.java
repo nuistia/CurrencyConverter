@@ -12,7 +12,7 @@ public class CurrencyMap {
 
     private void fillMap() {
 
-        for (Currency currency : handler.getCurrencies1()) {
+        for (Currency currency : handler.getCurrencies()) {
             currencyMap.put(currency.getCurrencyCodeL(), (currency.getAmount() / currency.getUnits()));
         }
     }

@@ -7,7 +7,7 @@ import java.net.URLConnection;
 
 public class JSONHandler {
 
-    private final Currency[] currencies1 = new Currency[61];
+    private final Currency[] currencies = new Currency[61];
 
     public JSONHandler() {
         try {
@@ -35,12 +35,12 @@ public class JSONHandler {
         if (jsonArray != null) {
             for (int i = 0; i < jsonArray.size(); i++) {
                 Gson temp = new Gson();
-                currencies1[i] = temp.fromJson(jsonArray.get(i).toString(), Currency.class);
+                currencies[i] = temp.fromJson(jsonArray.get(i).toString(), Currency.class);
             }
         }
     }
 
-    public Currency[] getCurrencies1() {
-        return currencies1;
+    public Currency[] getCurrencies() {
+        return currencies;
     }
 }
